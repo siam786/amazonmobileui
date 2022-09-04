@@ -1,4 +1,5 @@
 import 'package:amazon/models/product_model.dart';
+import 'package:amazon/screens/CartScreen.dart';
 import 'package:amazon/screens/product_carosolul.dart';
 import 'package:flutter/material.dart';
 
@@ -38,7 +39,11 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
               Padding(
                 padding: const EdgeInsets.only(top: 12.0, right: 20.0),
                 child: InkResponse(
-                  onTap: (() => print('Go to Cart')),
+                  onTap: (() => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (_) =>  CartScreen(),
+                      ))),
                   child: const Icon(
                     Icons.shopping_basket,
                     size: 30.0,
@@ -82,7 +87,7 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
         children: [
           Stack(
             children: [
-              Image(
+              const Image(
                 image: AssetImage('assets/images/samsung_gear_vr.jpg'),
               ),
               Positioned(
@@ -172,7 +177,7 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
               )
             ],
           ),
-          SizedBox(height: 15.0),
+          const SizedBox(height: 15.0),
           ProductCarousel(
             title: 'Amazon Primie Deals',
             products: products,
